@@ -1,0 +1,95 @@
+{
+  "n_responses_scored": 324,
+  "n_truncated_excluded": 0,
+  "per_arm": {
+    "raw_transcript": {
+      "by_chain": {
+        "['direct', 'paraphrase']": {
+          "n": 12,
+          "zombie_rate": 0.5,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.5
+        },
+        "['document', 'direct']": {
+          "n": 12,
+          "zombie_rate": 0.0,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.0
+        },
+        "['paraphrase', 'tool_result']": {
+          "n": 12,
+          "zombie_rate": 0.0,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.0
+        },
+        "['tool_result', 'document']": {
+          "n": 12,
+          "zombie_rate": 0.0,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.0
+        }
+      },
+      "by_proximity": {
+        "dead_old": {
+          "n": 12,
+          "zombie_rate": 0.1667,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.1667
+        },
+        "dead_recent": {
+          "n": 12,
+          "zombie_rate": 0.25,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.25
+        },
+        "live_near": {
+          "n": 12,
+          "zombie_rate": 0.0,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.0
+        },
+        "none": {
+          "n": 12,
+          "zombie_rate": 0.0833,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.0833
+        }
+      },
+      "control_accuracy": 1.0,
+      "correct_rate": 0.875,
+      "n_action_update_scored": 48,
+      "n_control_scored": 12,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.0833,
+      "zombie_rate": 0.125,
+      "zombie_v1_rate": 0.0,
+      "zombie_v2_rate": 0.125
+    },
+    "retrieval": {
+      "control_accuracy": 1.0,
+      "correct_rate": 0.2708,
+      "n_action_update_scored": 48,
+      "n_control_scored": 12,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.0,
+      "zombie_rate": 0.7292,
+      "zombie_v1_rate": 0.6875,
+      "zombie_v2_rate": 0.0417
+    },
+    "versioned": {
+      "control_accuracy": 1.0,
+      "correct_rate": 0.9375,
+      "n_action_update_scored": 48,
+      "n_control_scored": 12,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.0,
+      "zombie_rate": 0.0625,
+      "zombie_v1_rate": 0.0,
+      "zombie_v2_rate": 0.0625
+    }
+  },
+  "tokens": {
+    "input": 2522174,
+    "output": 86055
+  }
+}

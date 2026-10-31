@@ -1,0 +1,192 @@
+{
+ "raw_by_proximity": {
+  "dead_near": {
+   "n": 32,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "live_near": {
+   "n": 32,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "none": {
+   "n": 32,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  }
+ },
+ "raw_by_style": {
+  "direct": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "document": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "paraphrase": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "tool_result": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  }
+ },
+ "retrieval_by_style": {
+  "direct": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "document": {
+   "n": 24,
+   "zombie": 0.667,
+   "correct": 0.333,
+   "other": 0.0
+  },
+  "paraphrase": {
+   "n": 24,
+   "zombie": 0.667,
+   "correct": 0.333,
+   "other": 0.0
+  },
+  "tool_result": {
+   "n": 24,
+   "zombie": 0.667,
+   "correct": 0.333,
+   "other": 0.0
+  }
+ },
+ "retrieval_by_proximity": {
+  "dead_near": {
+   "n": 32,
+   "zombie": 0.75,
+   "correct": 0.25,
+   "other": 0.0
+  },
+  "live_near": {
+   "n": 32,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "none": {
+   "n": 32,
+   "zombie": 0.75,
+   "correct": 0.25,
+   "other": 0.0
+  }
+ },
+ "versioned_by_style": {
+  "direct": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "document": {
+   "n": 24,
+   "zombie": 0.083,
+   "correct": 0.917,
+   "other": 0.0
+  },
+  "paraphrase": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "tool_result": {
+   "n": 24,
+   "zombie": 0.167,
+   "correct": 0.833,
+   "other": 0.0
+  }
+ },
+ "summary_by_style": {
+  "direct": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 0.792,
+   "other": 0.208
+  },
+  "document": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 1.0,
+   "other": 0.0
+  },
+  "paraphrase": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 0.917,
+   "other": 0.083
+  },
+  "tool_result": {
+   "n": 24,
+   "zombie": 0.0,
+   "correct": 0.917,
+   "other": 0.083
+  }
+ },
+ "mean_reasoning_tokens_by_arm": {
+  "raw_transcript": 192.5,
+  "retrieval": 230.9,
+  "versioned": 264.1,
+  "summary": 290.6
+ },
+ "versioned_zombie_scenarios": [
+  "pilot-upd-051__versioned__action",
+  "pilot-upd-051__versioned__recall",
+  "pilot-upd-055__versioned__action",
+  "pilot-upd-055__versioned__recall",
+  "pilot-upd-076__versioned__action",
+  "pilot-upd-076__versioned__recall",
+  "pilot-upd-090__versioned__action",
+  "pilot-upd-090__versioned__recall",
+  "pilot-upd-094__versioned__action",
+  "pilot-upd-094__versioned__recall",
+  "pilot-upd-095__versioned__action",
+  "pilot-upd-095__versioned__recall"
+ ],
+ "retrieval_zombie_by_kind": {
+  "address": {
+   "n": 24,
+   "zombie": 0.5,
+   "correct": 0.5,
+   "other": 0.0
+  },
+  "price": {
+   "n": 24,
+   "zombie": 0.5,
+   "correct": 0.5,
+   "other": 0.0
+  },
+  "rule": {
+   "n": 24,
+   "zombie": 0.5,
+   "correct": 0.5,
+   "other": 0.0
+  },
+  "schedule": {
+   "n": 24,
+   "zombie": 0.5,
+   "correct": 0.5,
+   "other": 0.0
+  }
+ }
+}

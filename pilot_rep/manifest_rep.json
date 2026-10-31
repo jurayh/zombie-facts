@@ -1,0 +1,49 @@
+{
+  "arms": [
+    "raw_transcript"
+  ],
+  "bpe_upper_factor": 1.4,
+  "expected_output_tokens_per_call": {
+    "action": 500,
+    "recall": 500
+  },
+  "file_md5": {
+    "gold_rep.jsonl": "b74a40d1cbc7686fe53ec2b3ab4fab93",
+    "prompts_rep.jsonl": "f21c58cd7cd0b424d984c6f2d1effd98"
+  },
+  "final_styles": [
+    "weak_baseline",
+    "weak_aside",
+    "weak_hearsay",
+    "weak_parenthetical",
+    "weak_imperative",
+    "direct"
+  ],
+  "model": "muse-spark-1.3-contributor",
+  "n_control_scenarios": 8,
+  "n_prompts": 104,
+  "n_scenarios": 56,
+  "n_update_scenarios": 48,
+  "output_caps": {
+    "action": 1024,
+    "recall": 1024
+  },
+  "prebuilt_ws_tokens_total": 2091281,
+  "raw_prompt_ws_tokens_max": 20132,
+  "raw_prompt_ws_tokens_mean": 20108.5,
+  "raw_prompt_ws_tokens_min": 20085,
+  "rep_seed": 777029,
+  "spike_seed": 42,
+  "stage_a_prompt_ids": [
+    "pilot3-ctl-000__raw_transcript__action",
+    "pilot3-upd-000__raw_transcript__action",
+    "pilot3-upd-000__raw_transcript__recall",
+    "pilot3-upd-008__raw_transcript__action",
+    "pilot3-upd-008__raw_transcript__recall",
+    "pilot3-upd-016__raw_transcript__action",
+    "pilot3-upd-024__raw_transcript__action",
+    "pilot3-upd-040__raw_transcript__action"
+  ],
+  "v1_seed": 90210,
+  "v2_seed": 777013
+}

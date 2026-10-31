@@ -1,0 +1,61 @@
+{
+  "n_responses_scored": 984,
+  "n_truncated_excluded": 1,
+  "per_arm": {
+    "raw_transcript": {
+      "control_accuracy": 1.0,
+      "correct_rate": 1.0,
+      "lenient_correct_rate": 1.0,
+      "lenient_zombie_rate": 0.0,
+      "n_action_update_scored": 96,
+      "n_control_scored": 24,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.0,
+      "zombie_rate": 0.0
+    },
+    "retrieval": {
+      "control_accuracy": 1.0,
+      "correct_rate": 0.5,
+      "lenient_correct_rate": 0.5,
+      "lenient_zombie_rate": 0.5,
+      "n_action_update_scored": 96,
+      "n_control_scored": 24,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.0,
+      "zombie_rate": 0.5
+    },
+    "summary": {
+      "control_accuracy": 1.0,
+      "correct_rate": 0.9062,
+      "lenient_correct_rate": 1.0,
+      "lenient_zombie_rate": 0.0,
+      "n_action_update_scored": 96,
+      "n_control_scored": 24,
+      "n_generate_scored": 96,
+      "other_rate": 0.0938,
+      "pure_zombie_rate": 0.0,
+      "summary_fidelity": {
+        "contains_both": 0.9271,
+        "contains_current_only": 0.0208,
+        "contains_dead_only": 0.0,
+        "contains_neither": 0.0521
+      },
+      "zombie_rate": 0.0
+    },
+    "versioned": {
+      "control_accuracy": 1.0,
+      "correct_rate": 0.9375,
+      "lenient_correct_rate": 0.9375,
+      "lenient_zombie_rate": 0.0625,
+      "n_action_update_scored": 96,
+      "n_control_scored": 24,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.0,
+      "zombie_rate": 0.0625
+    }
+  },
+  "tokens": {
+    "input": 859168,
+    "output": 268330
+  }
+}

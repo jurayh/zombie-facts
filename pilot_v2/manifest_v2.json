@@ -1,0 +1,43 @@
+{
+  "arms": [
+    "raw_transcript",
+    "retrieval",
+    "versioned"
+  ],
+  "bpe_upper_factor": 1.4,
+  "expected_output_tokens_per_call": {
+    "action": 500,
+    "recall": 500
+  },
+  "file_md5": {
+    "gold_v2.jsonl": "93b94109a4708a5629bce37af8bf0e36",
+    "prompts_v2.jsonl": "9e9effc70c3995c7c8c59fee35926038",
+    "retrieval_choices_v2.jsonl": "5ffc26c8e45d939bb7d46504566aa4bf"
+  },
+  "model": "muse-spark-1.3-contributor",
+  "n_control_scenarios": 12,
+  "n_prompts": 324,
+  "n_scenarios": 60,
+  "n_update_scenarios": 48,
+  "output_caps": {
+    "action": 1024,
+    "recall": 1024
+  },
+  "prebuilt_ws_tokens_total": 2182801,
+  "raw_prompt_ws_tokens_max": 20125,
+  "raw_prompt_ws_tokens_mean": 20103.9,
+  "raw_prompt_ws_tokens_min": 20077,
+  "spike_seed": 42,
+  "stage_a_prompt_ids": [
+    "pilot2-ctl-000__raw_transcript__action",
+    "pilot2-upd-003__raw_transcript__action",
+    "pilot2-upd-003__retrieval__recall",
+    "pilot2-upd-012__raw_transcript__action",
+    "pilot2-upd-012__raw_transcript__recall",
+    "pilot2-upd-012__retrieval__action",
+    "pilot2-upd-012__versioned__action",
+    "pilot2-upd-030__raw_transcript__action"
+  ],
+  "v1_seed": 90210,
+  "v2_seed": 777013
+}

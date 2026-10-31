@@ -1,0 +1,65 @@
+{
+  "all_pass": true,
+  "gates": {
+    "G1_balance": {
+      "kinds": {
+        "address": 24,
+        "price": 24,
+        "rule": 24,
+        "schedule": 24
+      },
+      "n_control": 24,
+      "n_update": 96,
+      "pass": true
+    },
+    "G2_disjoint": {
+      "pass": true,
+      "pilot_seed": 90210,
+      "spike_seed": 42
+    },
+    "G3_padding": {
+      "max": 2066,
+      "min": 2015,
+      "n_padded": 336,
+      "pass": true
+    },
+    "G4_filler_clean": {
+      "pass": true
+    },
+    "G5_no_leakage": {
+      "leaks": [],
+      "pass": true
+    },
+    "G6_gold_sound": {
+      "n_gold": 984,
+      "pass": true
+    },
+    "G7_determinism": {
+      "pass": true
+    },
+    "G8_stage_a": {
+      "pass": true,
+      "prompt_ids": [
+        "pilot-upd-008__raw_transcript__action",
+        "pilot-upd-024__retrieval__action",
+        "pilot-upd-024__retrieval__recall",
+        "pilot-upd-072__raw_transcript__action",
+        "pilot-upd-072__raw_transcript__recall",
+        "pilot-upd-072__versioned__action",
+        "pilot-upd-072__summary__generate",
+        "pilot-ctl-000__raw_transcript__action"
+      ]
+    },
+    "G9_scorer_fixture": {
+      "arms_checked": [
+        "raw_transcript",
+        "retrieval",
+        "summary",
+        "versioned"
+      ],
+      "pass": true
+    }
+  },
+  "n_prebuilt_prompts": 768,
+  "n_templates": 216
+}

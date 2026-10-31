@@ -1,0 +1,53 @@
+{
+  "bpe_upper_factor": 1.4,
+  "expected_output_tokens_per_call": {
+    "action": 650,
+    "generate": 900,
+    "recall": 650
+  },
+  "file_md5": {
+    "gold.jsonl": "29063051b70f8e24439a1d8642704daa",
+    "prompts_prebuilt.jsonl": "65cd4a6d652c8b20ef4ede961e8b3930",
+    "summary_probe_templates.jsonl": "4b52811496e337aa68e2f827be9a7648"
+  },
+  "model": "muse-spark-1.3-contributor",
+  "n_control_scenarios": 24,
+  "n_prebuilt_prompts": 768,
+  "n_scenarios": 120,
+  "n_summary_generate_calls": 120,
+  "n_summary_probe_templates": 216,
+  "n_total_planned_calls": 984,
+  "n_update_scenarios": 96,
+  "output_caps": {
+    "action": 1024,
+    "generate": 1536,
+    "recall": 1024
+  },
+  "padded_prompt_ws_tokens_max": 2066,
+  "padded_prompt_ws_tokens_mean": 2040.3,
+  "padded_prompt_ws_tokens_min": 2015,
+  "pilot_seed": 90210,
+  "prebuilt_by_arm_phase": {
+    "raw_transcript/action": 120,
+    "raw_transcript/recall": 96,
+    "retrieval/action": 120,
+    "retrieval/recall": 96,
+    "summary/generate": 120,
+    "versioned/action": 120,
+    "versioned/recall": 96
+  },
+  "prebuilt_ws_tokens_total": 708840,
+  "spike_seed": 42,
+  "stage_a_prompt_ids": [
+    "pilot-ctl-000__raw_transcript__action",
+    "pilot-upd-008__raw_transcript__action",
+    "pilot-upd-024__retrieval__action",
+    "pilot-upd-024__retrieval__recall",
+    "pilot-upd-072__raw_transcript__action",
+    "pilot-upd-072__raw_transcript__recall",
+    "pilot-upd-072__summary__generate",
+    "pilot-upd-072__versioned__action"
+  ],
+  "summary_probe_ws_tokens_est": 63396,
+  "total_input_ws_tokens_est": 772236
+}

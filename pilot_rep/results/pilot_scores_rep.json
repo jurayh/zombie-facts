@@ -1,0 +1,67 @@
+{
+  "n_responses_scored": 102,
+  "n_truncated_excluded": 2,
+  "per_arm": {
+    "raw_transcript": {
+      "by_chain": {
+        "['direct', 'direct']": {
+          "n": 8,
+          "zombie_rate": 0.0,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.0
+        },
+        "['direct', 'weak_aside']": {
+          "n": 8,
+          "zombie_rate": 0.25,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.25
+        },
+        "['direct', 'weak_baseline']": {
+          "n": 8,
+          "zombie_rate": 0.625,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.625
+        },
+        "['direct', 'weak_hearsay']": {
+          "n": 8,
+          "zombie_rate": 1.0,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 1.0
+        },
+        "['direct', 'weak_imperative']": {
+          "n": 8,
+          "zombie_rate": 0.75,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.75
+        },
+        "['direct', 'weak_parenthetical']": {
+          "n": 7,
+          "zombie_rate": 1.0,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 1.0
+        }
+      },
+      "by_proximity": {
+        "none": {
+          "n": 47,
+          "zombie_rate": 0.5957,
+          "zombie_v1_rate": 0.0,
+          "zombie_v2_rate": 0.5957
+        }
+      },
+      "control_accuracy": 1.0,
+      "correct_rate": 0.4043,
+      "n_action_update_scored": 47,
+      "n_control_scored": 8,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.234,
+      "zombie_rate": 0.5957,
+      "zombie_v1_rate": 0.0,
+      "zombie_v2_rate": 0.5957
+    }
+  },
+  "tokens": {
+    "input": 2413377,
+    "output": 40348
+  }
+}

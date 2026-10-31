@@ -1,0 +1,67 @@
+{
+  "all_pass": true,
+  "gates": {
+    "G1_balance": {
+      "finals": {
+        "direct": 8,
+        "weak_aside": 8,
+        "weak_baseline": 8,
+        "weak_hearsay": 8,
+        "weak_imperative": 8,
+        "weak_parenthetical": 8
+      },
+      "kinds": {
+        "address": 12,
+        "price": 12,
+        "rule": 12,
+        "schedule": 12
+      },
+      "n_control": 8,
+      "n_update": 48,
+      "pass": true
+    },
+    "G2_disjoint": {
+      "pass": true
+    },
+    "G3_padding": {
+      "max": 20132,
+      "min": 20085,
+      "n_prompts": 104,
+      "pass": true
+    },
+    "G4_clean": {
+      "pass": true
+    },
+    "G5_weak": {
+      "bad": [],
+      "pass": true
+    },
+    "G6_gold_sound": {
+      "n_gold": 104,
+      "pass": true
+    },
+    "G7_determinism": {
+      "pass": true
+    },
+    "G8_stage_a": {
+      "pass": true,
+      "prompt_ids": [
+        "pilot3-upd-000__raw_transcript__action",
+        "pilot3-upd-000__raw_transcript__recall",
+        "pilot3-upd-008__raw_transcript__action",
+        "pilot3-upd-008__raw_transcript__recall",
+        "pilot3-upd-016__raw_transcript__action",
+        "pilot3-upd-024__raw_transcript__action",
+        "pilot3-upd-040__raw_transcript__action",
+        "pilot3-ctl-000__raw_transcript__action"
+      ]
+    },
+    "G9_scorer_current_value": {
+      "pass": true
+    },
+    "G9_scorer_dead_values": {
+      "pass": true
+    }
+  },
+  "n_prompts": 104
+}

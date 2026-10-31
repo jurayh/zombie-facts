@@ -1,0 +1,69 @@
+{
+  "all_pass": true,
+  "gates": {
+    "G1_balance": {
+      "kinds": {
+        "address": 12,
+        "price": 12,
+        "rule": 12,
+        "schedule": 12
+      },
+      "n_control": 12,
+      "n_update": 48,
+      "pass": true
+    },
+    "G2_disjoint": {
+      "pass": true
+    },
+    "G3_padding": {
+      "max": 20125,
+      "min": 20077,
+      "n_raw": 108,
+      "pass": true
+    },
+    "G4_clean": {
+      "pass": true
+    },
+    "G5_unlabelled": {
+      "bad": [],
+      "pass": true
+    },
+    "G6_gold_sound": {
+      "n_gold": 324,
+      "pass": true
+    },
+    "G7_determinism": {
+      "pass": true
+    },
+    "G8_stage_a": {
+      "pass": true,
+      "prompt_ids": [
+        "pilot2-upd-003__raw_transcript__action",
+        "pilot2-upd-003__retrieval__recall",
+        "pilot2-upd-012__raw_transcript__action",
+        "pilot2-upd-012__raw_transcript__recall",
+        "pilot2-upd-012__retrieval__action",
+        "pilot2-upd-012__versioned__action",
+        "pilot2-upd-030__raw_transcript__action",
+        "pilot2-ctl-000__raw_transcript__action"
+      ]
+    },
+    "G9_scorer_current_value": {
+      "arms": [
+        "raw_transcript",
+        "retrieval",
+        "versioned"
+      ],
+      "pass": true
+    },
+    "G9_scorer_dead_values": {
+      "arms": [
+        "raw_transcript",
+        "retrieval",
+        "versioned"
+      ],
+      "pass": true
+    }
+  },
+  "n_prompts": 324
+}
