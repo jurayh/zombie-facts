@@ -48,17 +48,18 @@ Deterministic: repeated runs produce byte-identical results.
 
 ## Live pilots (measured, not scripted)
 
-Three live runs on one model class (`muse-spark-1.3-contributor`,
+Four live runs on one model class (`muse-spark-1.3-contributor`,
 temperature 0, reasoning low), all with pre-registered protocols,
 paired recall probes, and hard spend caps. Full findings in
 `FINDINGS_CONSOLIDATED.md`; per-run protocols, proposals, and scores in
-`pilot/`, `pilot_v2/`, `pilot_rep/`.
+`pilot/`, `pilot_v2/`, `pilot_rep/`, `pilot_emb/`.
 
 | Run | Scale | Raw zombie | Retrieval zombie | Versioned zombie |
 |---|---:|---:|---:|---:|
 | v1 pilot (Oct 28, 2026) | ~2k tokens, single updates | 0.0% (0/96) | 50.0% | 6.3% |
 | v2 hard regime (Oct 29, 2026) | ~20k tokens, chained v1→v2→v3, unlabelled re-mentions | 12.5% (6/48) | 72.9% (TF-IDF) | 6.3% |
 | varied-phrasing replication (Oct 30, 2026) | ~20k tokens, final update phrasing varied | 59.6% scored (28/47), 71.8% on weak phrasings, 0/8 direct control | — | — |
+| embedding retriever, local model (Nov 1, 2026) | v2 corpus, 823 chunks, 108 probes | — | 78.7% (37/47; 27.7% clear-win-only) | — |
 
 Headline result: a reader acting on a dead value is real, but only when
 the final update arrives weakly. Every zombie in v2 and the replication
@@ -67,9 +68,9 @@ back to the last clearly-marked update. Strongly marked final updates
 (direct control) were never missed. Weaker phrasings fail two ways:
 stronger weak phrasings are registered but not used at action time
 (pure zombies); the weakest (hearsay, parenthetical) are not registered
-as current even on direct recall.
+as current even on direct recall. The embedding pilot adds that a real retriever's failures are mostly tie-driven: 78.7% headline, 27.7% counting clear wins only, below TF-IDF's 47.9%.
 
-All three runs stayed inside their approved caps. See `REPRODUCE.md` for how to rebuild the
+All four runs stayed inside their approved caps. See `REPRODUCE.md` for how to rebuild the
 corpora and rerun the offline gates and tests, and what a live rerun needs.
 
 ## Pre-registered kill criteria
