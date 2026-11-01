@@ -1,0 +1,108 @@
+{"phase": "action", "prompt_id": "pilot2-upd-000__retrieval__action", "scenario_id": "pilot2-upd-000", "task": "Address the parcel for Mina, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-000__retrieval__recall", "scenario_id": "pilot2-upd-000", "task": "What is the current delivery address for Mina?"}
+{"phase": "action", "prompt_id": "pilot2-upd-001__retrieval__action", "scenario_id": "pilot2-upd-001", "task": "Quote a customer the price of enamel pot, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-001__retrieval__recall", "scenario_id": "pilot2-upd-001", "task": "What is the current price for enamel pot?"}
+{"phase": "action", "prompt_id": "pilot2-upd-002__retrieval__action", "scenario_id": "pilot2-upd-002", "task": "Plan around choir rehearsal, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-002__retrieval__recall", "scenario_id": "pilot2-upd-002", "task": "What is the current scheduled time for choir rehearsal?"}
+{"phase": "action", "prompt_id": "pilot2-upd-003__retrieval__action", "scenario_id": "pilot2-upd-003", "task": "Quote a customer the price of desk lamp, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-003__retrieval__recall", "scenario_id": "pilot2-upd-003", "task": "What is the current price for desk lamp?"}
+{"phase": "action", "prompt_id": "pilot2-upd-004__retrieval__action", "scenario_id": "pilot2-upd-004", "task": "Plan around team standup, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-004__retrieval__recall", "scenario_id": "pilot2-upd-004", "task": "What is the current scheduled time for team standup?"}
+{"phase": "action", "prompt_id": "pilot2-upd-005__retrieval__action", "scenario_id": "pilot2-upd-005", "task": "Handle a pickup under parcel depot, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-005__retrieval__recall", "scenario_id": "pilot2-upd-005", "task": "What is the current pickup rule for parcel depot?"}
+{"phase": "action", "prompt_id": "pilot2-upd-006__retrieval__action", "scenario_id": "pilot2-upd-006", "task": "Plan around repair workshop, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-006__retrieval__recall", "scenario_id": "pilot2-upd-006", "task": "What is the current scheduled time for repair workshop?"}
+{"phase": "action", "prompt_id": "pilot2-upd-007__retrieval__action", "scenario_id": "pilot2-upd-007", "task": "Handle a pickup under bike repair, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-007__retrieval__recall", "scenario_id": "pilot2-upd-007", "task": "What is the current pickup rule for bike repair?"}
+{"phase": "action", "prompt_id": "pilot2-upd-008__retrieval__action", "scenario_id": "pilot2-upd-008", "task": "Address the parcel for Ana, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-008__retrieval__recall", "scenario_id": "pilot2-upd-008", "task": "What is the current delivery address for Ana?"}
+{"phase": "action", "prompt_id": "pilot2-upd-009__retrieval__action", "scenario_id": "pilot2-upd-009", "task": "Handle a pickup under flower delivery, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-009__retrieval__recall", "scenario_id": "pilot2-upd-009", "task": "What is the current pickup rule for flower delivery?"}
+{"phase": "action", "prompt_id": "pilot2-upd-010__retrieval__action", "scenario_id": "pilot2-upd-010", "task": "Address the parcel for Lena, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-010__retrieval__recall", "scenario_id": "pilot2-upd-010", "task": "What is the current delivery address for Lena?"}
+{"phase": "action", "prompt_id": "pilot2-upd-011__retrieval__action", "scenario_id": "pilot2-upd-011", "task": "Quote a customer the price of steel bottle, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-011__retrieval__recall", "scenario_id": "pilot2-upd-011", "task": "What is the current price for steel bottle?"}
+{"phase": "action", "prompt_id": "pilot2-upd-012__retrieval__action", "scenario_id": "pilot2-upd-012", "task": "Quote a customer the price of wool scarf, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-012__retrieval__recall", "scenario_id": "pilot2-upd-012", "task": "What is the current price for wool scarf?"}
+{"phase": "action", "prompt_id": "pilot2-upd-013__retrieval__action", "scenario_id": "pilot2-upd-013", "task": "Plan around yoga class, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-013__retrieval__recall", "scenario_id": "pilot2-upd-013", "task": "What is the current scheduled time for yoga class?"}
+{"phase": "action", "prompt_id": "pilot2-upd-014__retrieval__action", "scenario_id": "pilot2-upd-014", "task": "Handle a pickup under flower delivery, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-014__retrieval__recall", "scenario_id": "pilot2-upd-014", "task": "What is the current pickup rule for flower delivery?"}
+{"phase": "action", "prompt_id": "pilot2-upd-015__retrieval__action", "scenario_id": "pilot2-upd-015", "task": "Plan around repair workshop, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-015__retrieval__recall", "scenario_id": "pilot2-upd-015", "task": "What is the current scheduled time for repair workshop?"}
+{"phase": "action", "prompt_id": "pilot2-upd-016__retrieval__action", "scenario_id": "pilot2-upd-016", "task": "Handle a pickup under bakery pickup, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-016__retrieval__recall", "scenario_id": "pilot2-upd-016", "task": "What is the current pickup rule for bakery pickup?"}
+{"phase": "action", "prompt_id": "pilot2-upd-017__retrieval__action", "scenario_id": "pilot2-upd-017", "task": "Address the parcel for Ines, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-017__retrieval__recall", "scenario_id": "pilot2-upd-017", "task": "What is the current delivery address for Ines?"}
+{"phase": "action", "prompt_id": "pilot2-upd-018__retrieval__action", "scenario_id": "pilot2-upd-018", "task": "Handle a pickup under dry cleaning, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-018__retrieval__recall", "scenario_id": "pilot2-upd-018", "task": "What is the current pickup rule for dry cleaning?"}
+{"phase": "action", "prompt_id": "pilot2-upd-019__retrieval__action", "scenario_id": "pilot2-upd-019", "task": "Address the parcel for Jonas, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-019__retrieval__recall", "scenario_id": "pilot2-upd-019", "task": "What is the current delivery address for Jonas?"}
+{"phase": "action", "prompt_id": "pilot2-upd-020__retrieval__action", "scenario_id": "pilot2-upd-020", "task": "Quote a customer the price of enamel pot, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-020__retrieval__recall", "scenario_id": "pilot2-upd-020", "task": "What is the current price for enamel pot?"}
+{"phase": "action", "prompt_id": "pilot2-upd-021__retrieval__action", "scenario_id": "pilot2-upd-021", "task": "Address the parcel for Omar, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-021__retrieval__recall", "scenario_id": "pilot2-upd-021", "task": "What is the current delivery address for Omar?"}
+{"phase": "action", "prompt_id": "pilot2-upd-022__retrieval__action", "scenario_id": "pilot2-upd-022", "task": "Quote a customer the price of linen apron, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-022__retrieval__recall", "scenario_id": "pilot2-upd-022", "task": "What is the current price for linen apron?"}
+{"phase": "action", "prompt_id": "pilot2-upd-023__retrieval__action", "scenario_id": "pilot2-upd-023", "task": "Plan around book club, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-023__retrieval__recall", "scenario_id": "pilot2-upd-023", "task": "What is the current scheduled time for book club?"}
+{"phase": "action", "prompt_id": "pilot2-upd-024__retrieval__action", "scenario_id": "pilot2-upd-024", "task": "Plan around team standup, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-024__retrieval__recall", "scenario_id": "pilot2-upd-024", "task": "What is the current scheduled time for team standup?"}
+{"phase": "action", "prompt_id": "pilot2-upd-025__retrieval__action", "scenario_id": "pilot2-upd-025", "task": "Handle a pickup under flower delivery, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-025__retrieval__recall", "scenario_id": "pilot2-upd-025", "task": "What is the current pickup rule for flower delivery?"}
+{"phase": "action", "prompt_id": "pilot2-upd-026__retrieval__action", "scenario_id": "pilot2-upd-026", "task": "Address the parcel for Dario, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-026__retrieval__recall", "scenario_id": "pilot2-upd-026", "task": "What is the current delivery address for Dario?"}
+{"phase": "action", "prompt_id": "pilot2-upd-027__retrieval__action", "scenario_id": "pilot2-upd-027", "task": "Handle a pickup under flower delivery, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-027__retrieval__recall", "scenario_id": "pilot2-upd-027", "task": "What is the current pickup rule for flower delivery?"}
+{"phase": "action", "prompt_id": "pilot2-upd-028__retrieval__action", "scenario_id": "pilot2-upd-028", "task": "Address the parcel for Ravi, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-028__retrieval__recall", "scenario_id": "pilot2-upd-028", "task": "What is the current delivery address for Ravi?"}
+{"phase": "action", "prompt_id": "pilot2-upd-029__retrieval__action", "scenario_id": "pilot2-upd-029", "task": "Quote a customer the price of wool scarf, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-029__retrieval__recall", "scenario_id": "pilot2-upd-029", "task": "What is the current price for wool scarf?"}
+{"phase": "action", "prompt_id": "pilot2-upd-030__retrieval__action", "scenario_id": "pilot2-upd-030", "task": "Address the parcel for Ana, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-030__retrieval__recall", "scenario_id": "pilot2-upd-030", "task": "What is the current delivery address for Ana?"}
+{"phase": "action", "prompt_id": "pilot2-upd-031__retrieval__action", "scenario_id": "pilot2-upd-031", "task": "Quote a customer the price of linen apron, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-031__retrieval__recall", "scenario_id": "pilot2-upd-031", "task": "What is the current price for linen apron?"}
+{"phase": "action", "prompt_id": "pilot2-upd-032__retrieval__action", "scenario_id": "pilot2-upd-032", "task": "Plan around dentist appointment, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-032__retrieval__recall", "scenario_id": "pilot2-upd-032", "task": "What is the current scheduled time for dentist appointment?"}
+{"phase": "action", "prompt_id": "pilot2-upd-033__retrieval__action", "scenario_id": "pilot2-upd-033", "task": "Quote a customer the price of linen apron, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-033__retrieval__recall", "scenario_id": "pilot2-upd-033", "task": "What is the current price for linen apron?"}
+{"phase": "action", "prompt_id": "pilot2-upd-034__retrieval__action", "scenario_id": "pilot2-upd-034", "task": "Plan around yoga class, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-034__retrieval__recall", "scenario_id": "pilot2-upd-034", "task": "What is the current scheduled time for yoga class?"}
+{"phase": "action", "prompt_id": "pilot2-upd-035__retrieval__action", "scenario_id": "pilot2-upd-035", "task": "Handle a pickup under flower delivery, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-035__retrieval__recall", "scenario_id": "pilot2-upd-035", "task": "What is the current pickup rule for flower delivery?"}
+{"phase": "action", "prompt_id": "pilot2-upd-036__retrieval__action", "scenario_id": "pilot2-upd-036", "task": "Handle a pickup under bike repair, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-036__retrieval__recall", "scenario_id": "pilot2-upd-036", "task": "What is the current pickup rule for bike repair?"}
+{"phase": "action", "prompt_id": "pilot2-upd-037__retrieval__action", "scenario_id": "pilot2-upd-037", "task": "Address the parcel for Dario, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-037__retrieval__recall", "scenario_id": "pilot2-upd-037", "task": "What is the current delivery address for Dario?"}
+{"phase": "action", "prompt_id": "pilot2-upd-038__retrieval__action", "scenario_id": "pilot2-upd-038", "task": "Quote a customer the price of steel bottle, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-038__retrieval__recall", "scenario_id": "pilot2-upd-038", "task": "What is the current price for steel bottle?"}
+{"phase": "action", "prompt_id": "pilot2-upd-039__retrieval__action", "scenario_id": "pilot2-upd-039", "task": "Address the parcel for Ines, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-039__retrieval__recall", "scenario_id": "pilot2-upd-039", "task": "What is the current delivery address for Ines?"}
+{"phase": "action", "prompt_id": "pilot2-upd-040__retrieval__action", "scenario_id": "pilot2-upd-040", "task": "Quote a customer the price of wool scarf, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-040__retrieval__recall", "scenario_id": "pilot2-upd-040", "task": "What is the current price for wool scarf?"}
+{"phase": "action", "prompt_id": "pilot2-upd-041__retrieval__action", "scenario_id": "pilot2-upd-041", "task": "Plan around book club, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-041__retrieval__recall", "scenario_id": "pilot2-upd-041", "task": "What is the current scheduled time for book club?"}
+{"phase": "action", "prompt_id": "pilot2-upd-042__retrieval__action", "scenario_id": "pilot2-upd-042", "task": "Quote a customer the price of linen apron, using the price currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-042__retrieval__recall", "scenario_id": "pilot2-upd-042", "task": "What is the current price for linen apron?"}
+{"phase": "action", "prompt_id": "pilot2-upd-043__retrieval__action", "scenario_id": "pilot2-upd-043", "task": "Plan around repair workshop, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-043__retrieval__recall", "scenario_id": "pilot2-upd-043", "task": "What is the current scheduled time for repair workshop?"}
+{"phase": "action", "prompt_id": "pilot2-upd-044__retrieval__action", "scenario_id": "pilot2-upd-044", "task": "Handle a pickup under bakery pickup, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-044__retrieval__recall", "scenario_id": "pilot2-upd-044", "task": "What is the current pickup rule for bakery pickup?"}
+{"phase": "action", "prompt_id": "pilot2-upd-045__retrieval__action", "scenario_id": "pilot2-upd-045", "task": "Plan around choir rehearsal, using the scheduled time currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-045__retrieval__recall", "scenario_id": "pilot2-upd-045", "task": "What is the current scheduled time for choir rehearsal?"}
+{"phase": "action", "prompt_id": "pilot2-upd-046__retrieval__action", "scenario_id": "pilot2-upd-046", "task": "Handle a pickup under dry cleaning, using the pickup rule currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-046__retrieval__recall", "scenario_id": "pilot2-upd-046", "task": "What is the current pickup rule for dry cleaning?"}
+{"phase": "action", "prompt_id": "pilot2-upd-047__retrieval__action", "scenario_id": "pilot2-upd-047", "task": "Address the parcel for Lena, using the delivery address currently on file. What value do you use?"}
+{"phase": "recall", "prompt_id": "pilot2-upd-047__retrieval__recall", "scenario_id": "pilot2-upd-047", "task": "What is the current delivery address for Lena?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-000__retrieval__action", "scenario_id": "pilot2-ctl-000", "task": "Address the parcel for Marco, using the delivery address currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-001__retrieval__action", "scenario_id": "pilot2-ctl-001", "task": "Address the parcel for Sofia, using the delivery address currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-002__retrieval__action", "scenario_id": "pilot2-ctl-002", "task": "Address the parcel for Ravi, using the delivery address currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-003__retrieval__action", "scenario_id": "pilot2-ctl-003", "task": "Quote a customer the price of trail mug, using the price currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-004__retrieval__action", "scenario_id": "pilot2-ctl-004", "task": "Quote a customer the price of desk lamp, using the price currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-005__retrieval__action", "scenario_id": "pilot2-ctl-005", "task": "Quote a customer the price of wool scarf, using the price currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-006__retrieval__action", "scenario_id": "pilot2-ctl-006", "task": "Plan around book club, using the scheduled time currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-007__retrieval__action", "scenario_id": "pilot2-ctl-007", "task": "Plan around yoga class, using the scheduled time currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-008__retrieval__action", "scenario_id": "pilot2-ctl-008", "task": "Plan around repair workshop, using the scheduled time currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-009__retrieval__action", "scenario_id": "pilot2-ctl-009", "task": "Handle a pickup under bike repair, using the pickup rule currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-010__retrieval__action", "scenario_id": "pilot2-ctl-010", "task": "Handle a pickup under parcel depot, using the pickup rule currently on file. What value do you use?"}
+{"phase": "action", "prompt_id": "pilot2-ctl-011__retrieval__action", "scenario_id": "pilot2-ctl-011", "task": "Handle a pickup under bike repair, using the pickup rule currently on file. What value do you use?"}

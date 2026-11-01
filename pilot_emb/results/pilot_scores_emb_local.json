@@ -1,0 +1,73 @@
+{
+  "n_responses_scored": 107,
+  "n_truncated_excluded": 1,
+  "per_arm": {
+    "retrieval": {
+      "by_chain": {
+        "['direct', 'paraphrase']": {
+          "n": 12,
+          "zombie_rate": 1.0,
+          "zombie_v1_rate": 0.8333,
+          "zombie_v2_rate": 0.1667
+        },
+        "['document', 'direct']": {
+          "n": 11,
+          "zombie_rate": 1.0,
+          "zombie_v1_rate": 0.2727,
+          "zombie_v2_rate": 0.7273
+        },
+        "['paraphrase', 'tool_result']": {
+          "n": 12,
+          "zombie_rate": 0.9167,
+          "zombie_v1_rate": 0.9167,
+          "zombie_v2_rate": 0.0
+        },
+        "['tool_result', 'document']": {
+          "n": 12,
+          "zombie_rate": 0.25,
+          "zombie_v1_rate": 0.1667,
+          "zombie_v2_rate": 0.0833
+        }
+      },
+      "by_proximity": {
+        "dead_old": {
+          "n": 12,
+          "zombie_rate": 0.75,
+          "zombie_v1_rate": 0.4167,
+          "zombie_v2_rate": 0.3333
+        },
+        "dead_recent": {
+          "n": 11,
+          "zombie_rate": 0.7273,
+          "zombie_v1_rate": 0.6364,
+          "zombie_v2_rate": 0.0909
+        },
+        "live_near": {
+          "n": 12,
+          "zombie_rate": 0.8333,
+          "zombie_v1_rate": 0.5833,
+          "zombie_v2_rate": 0.25
+        },
+        "none": {
+          "n": 12,
+          "zombie_rate": 0.8333,
+          "zombie_v1_rate": 0.5833,
+          "zombie_v2_rate": 0.25
+        }
+      },
+      "control_accuracy": 1.0,
+      "correct_rate": 0.2128,
+      "n_action_update_scored": 47,
+      "n_control_scored": 12,
+      "other_rate": 0.0,
+      "pure_zombie_rate": 0.1277,
+      "zombie_rate": 0.7872,
+      "zombie_v1_rate": 0.5532,
+      "zombie_v2_rate": 0.234
+    }
+  },
+  "tokens": {
+    "input": 8671,
+    "output": 28807
+  }
+}

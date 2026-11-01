@@ -1,0 +1,16 @@
+{
+  "chunk_ws_tokens": 10980,
+  "files_sha256": "cbc2814ed8f8c3e3924ee455203ab95c8663f40e26e70127a1ac48cf1e93e653",
+  "n_chunks": 823,
+  "n_control_scenarios": 12,
+  "n_gold_rows": 108,
+  "n_queries": 108,
+  "n_scenarios": 60,
+  "n_update_scenarios": 48,
+  "query_ws_tokens": 1458,
+  "seed": 777013,
+  "source": "pilot_v2 corpus, seed 777013, reused exactly",
+  "tie_epsilon": 0.02,
+  "total_ws_tokens": 12438,
+  "upper_token_bound_x1_4": 17413
+}
