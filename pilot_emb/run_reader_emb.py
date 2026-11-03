@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-"""Run the approved Zombie Facts embedding-retriever reader stage on the Meta Model API.
+"""Run the Zombie Facts embedding-retriever reader stage on the Meta Model API.
 
 Reader prompts come from run_retrieval_emb.py (stage R); this script
-only makes reader calls. It is NOT run as part of the 0 package
-build; it runs only under an approved proposal.
-
-Reader-stage approval: approved sub-caps (see proposal),
-all stages, model
-muse-spark-1.3-contributor. This runner enforces the cap itself: it tracks
-actual billed tokens from each response's usage block and refuses to start
-a wave whose conservative estimate would cross the cap.
+only makes reader calls. It reads a plain META_MODEL_API_KEY
+environment variable (set your own cap in the CAP constant before
+running). Model muse-spark-1.3-contributor. This runner enforces
+the cap itself: it tracks actual billed tokens from every response's
+usage block and refuses to start a wave whose conservative estimate
+would cross the cap.
 
 Usage:
     python3 run_reader_emb.py --stage A     # 8 prebuilt calibration prompts
@@ -25,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -32,8 +31,6 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
-from dynamic_credentials import add_surrogate_to_request, read_json_response
 
 API = "https://api.meta.ai/v1/responses"
 ALLOWED = ("api.meta.ai",)
@@ -49,16 +46,22 @@ RAW = ROOT / "raw_emb"
 RESPONSES = ROOT / "responses_emb.jsonl"
 
 
+def _api_key() -> str:
+    key = os.environ.get("META_MODEL_API_KEY", "")
+    if not key:
+        raise SystemExit("Set META_MODEL_API_KEY to a Meta Model API key before running.")
+    return key
+
+
 def post(body: dict) -> tuple[int, dict, float]:
     req = urllib.request.Request(API, data=json.dumps(body).encode(), method="POST")
     req.add_header("Content-Type", "application/json")
     req.add_header("Accept", "application/json")
-    add_surrogate_to_request(req, "custom.meta-model-api",
-                             entry_name="access_token", allowed_hosts=ALLOWED)
+    req.add_header("Authorization", "Bearer " + _api_key())
     started = time.time()
     try:
         with urllib.request.urlopen(req, timeout=300) as resp:
-            return resp.status, read_json_response(resp), round(time.time() - started, 2)
+            return resp.status, json.loads(resp.read().decode()), round(time.time() - started, 2)
     except urllib.error.HTTPError as e:
         return e.code, {"error_body": e.read().decode(errors="replace")[:1500]}, \
             round(time.time() - started, 2)
