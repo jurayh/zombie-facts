@@ -1,9 +1,10 @@
 # Zombie Facts — consolidated findings
 
-One benchmark, four measurements: an offline scripted core plus three live
+One benchmark, five measurements: an offline scripted core plus four live
 runs. This file consolidates them; the per-run findings documents
 (`pilot/PILOT_FINDINGS.md`, `pilot_v2/PILOT_FINDINGS_V2.md`,
-`pilot_rep/PILOT_FINDINGS_REP.md`) carry the full detail, and the
+`pilot_rep/PILOT_FINDINGS_REP.md`,
+`pilot_emb/PILOT_FINDINGS_EMB_LOCAL.md`) carry the full detail, and the
 per-run protocols carry the pre-registered decision rules.
 
 ## The question
@@ -83,13 +84,43 @@ two failure depths: stronger weak phrasings are registered but not used
 at action time (pure); the weakest are not registered even on direct
 recall (explained).
 
+## Embedding-retriever pilot (Nov 1, 2026, 108 calls)
+
+The v2 corpus reused exactly (823 chunks, 108 probes, same gold), with
+the TF-IDF proxy replaced by a real embedding retriever: a local model
+(all-MiniLM-L6-v2, CPU, 384-dim vectors, cosine top-1, the same 0.02
+tie rule with earliest-index tie-break). Same reader, prompts, and
+scoring as v2 retrieval.
+
+| Arm | Zombie | Pure zombie | Controls |
+|---|---:|---:|---:|
+| retrieval (embedding, local) | 78.7% (37/47) | 12.8% (6/47) | 100% |
+
+The headline is close to TF-IDF's 72.9%, so the proxy is validated as
+a store-failure estimate — but the composition differs. Of the 37
+scored zombies, 24 were tie-driven and 13 were clear wins:
+clear-win-only rate 27.7%, below TF-IDF's 47.9%. Tied choices picked
+the plant chunk in 39 of 48 ties, so the earliest-index tie-break
+systematically favours the oldest value. The reader added no error:
+faithful to the retrieved chunk in 106/107 responses (59/59 on action
+probes), zero reader-introduced zombies. One action response
+truncated (reasoning to cap, empty answer), excluded per protocol.
+The chain pattern matches the raw-reader finding through retrieval:
+chains ending in a weak final update ran 92–100% zombie, while the
+chain ending in a strongly marked document-style final update ran
+25%. Proximity was flat (73–83% everywhere), as expected from a
+retriever that ignores position. The fix this points at is tie
+behaviour (dense short-statement similarities plus the earliest-index
+break), not confident misranking alone.
+
 ## What this does and does not establish
 
 Establishes, for this model class at ~20k tokens with exact-value
 instructions:
 
 1. Version-blind retrieval manufactures zombies regardless of reader
-   quality (50.0% v1, 72.9% v2 with a TF-IDF proxy).
+   quality (50.0% v1, 72.9% v2 with a TF-IDF proxy, 78.7% with a local
+   embedding retriever).
 2. A versioned store with supersession links nearly eliminates them
    (6.3% in both pilots, matching its reference registration rate).
 3. A raw reader misses weakly phrased final updates at high rates
@@ -98,9 +129,10 @@ instructions:
 
 Does not establish: rates for other models, other scales, prose (non
 exact-value) answers, or production embedding retrievers — the TF-IDF
-retriever here is a documented proxy, not a production index. The
-per-phrasing rates are presence/absence screens at n=8, not precise
-rankings.
+retriever here is a documented proxy, not a production index, and the
+embedding pilot used one small local model, not a hosted embedder or
+a production store. The per-phrasing rates are presence/absence
+screens at n=8, not precise rankings.
 
 ## Reproduce
 
