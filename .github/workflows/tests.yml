@@ -1,0 +1,31 @@
+name: Offline tests and gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Scripted core
+        run: python3 run_spike.py
+      - name: Core tests
+        run: python3 -m unittest discover -s tests
+      - name: Live-pilot gates (offline rebuilds)
+        run: |
+          python3 pilot/build_prompts.py
+          python3 pilot/run_gates.py
+          python3 pilot_v2/build_prompts_v2.py
+          python3 pilot_v2/run_gates_v2.py
+          python3 pilot_rep/build_prompts_rep.py
+          python3 pilot_rep/run_gates_rep.py
+          python3 pilot_emb/build_inventory_emb.py
+          python3 pilot_emb/run_gates_emb.py
+      - name: Embedding-pilot tests
+        run: python3 -m unittest discover -s pilot_emb/tests

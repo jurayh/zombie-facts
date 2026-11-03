@@ -99,7 +99,11 @@ scoring as v2 retrieval.
 The headline is close to TF-IDF's 72.9%, so the proxy is validated as
 a store-failure estimate — but the composition differs. Of the 37
 scored zombies, 24 were tie-driven and 13 were clear wins:
-clear-win-only rate 27.7%, below TF-IDF's 47.9%. Tied choices picked
+clear-win-only rate 27.7%, below TF-IDF's 47.9%. That comparison is epsilon-dependent:
+re-cutting the recorded margins at tighter thresholds lifts the
+clear-win-only dead rate to 72.9% of choices at 0.002, above TF-IDF's
+47.9% — so the figure must always be reported with its epsilon
+(0.02 here). See the sensitivity section in the emb findings. Tied choices picked
 the plant chunk in 39 of 48 ties, so the earliest-index tie-break
 systematically favours the oldest value. The reader added no error:
 faithful to the retrieved chunk in 106/107 responses (59/59 on action

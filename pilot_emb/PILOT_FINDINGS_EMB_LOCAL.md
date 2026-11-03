@@ -82,6 +82,31 @@ this contrasts with the scripted raw arm, where proximity dominated.
 - Truncation handling per protocol (1 excluded, counted).
 - No stub-backend results appear anywhere in this report.
 
+## Tie-epsilon sensitivity
+
+A margin-bucket re-cut of the recorded action choices (n=48), no
+re-embedding and no re-choosing. The headline reader zombie rate
+(78.7%) does not depend on epsilon: the reader answers are fixed,
+and only the tie/clear labels move. The clear-win-only comparison
+does depend on it, sharply:
+
+| Tie threshold | Clear-win-only dead rate (choices) |
+|---|---:|
+| 0.02 (as run) | 29.2% (14/48; 27.7% on scored answers) |
+| 0.01 | 43.8% (21/48) |
+| 0.005 | 62.5% (30/48) |
+| 0.002 | 72.9% (35/48) |
+
+Dead choices by margin bucket: under 0.002: 3; 0.002-0.005: 5;
+0.005-0.01: 9; 0.01-0.02: 7; 0.02 and above: 14. Tied choices go
+dead 24/25 (96%) against 14/23 (60.9%) for clear choices.
+
+Rule: the clear-win-only figure must never be reported without its
+epsilon. At 0.02 it sits below TF-IDF's 47.9%; at 0.002 it sits
+above it. Honest limit: this is a re-cut of recorded margins, not a
+counterfactual — re-choosing at other thresholds would need the full
+rankings or vectors, which were not saved.
+
 ## Limits (carried from the protocol)
 
 - One small open embedding model. A frontier hosted embedder may rank
@@ -92,5 +117,5 @@ this contrasts with the scripted raw arm, where proximity dominated.
   in this setup.
 - Tie epsilon 0.02 was inherited from TF-IDF for comparability. The
   high tie density (48/108 choices) suggests the epsilon interacts
-  with embedding geometry; a sensitivity analysis over epsilon is a
-  natural zero-cost follow-up on the recorded scores, not a new run.
+  with embedding geometry; see the Tie-epsilon sensitivity section
+  above.
