@@ -15,6 +15,12 @@ Outputs:
   prompts_emb.jsonl -- reader prompts in exactly v2's retrieval format:
       ANSWER_INSTRUCTION + "Memory (retrieved record):\\n" + chunk text
       + task. Rows carry stage A/B (see mark_stages).
+  retrieval_rankings_emb.jsonl -- per probe: prompt_id, scenario_id,
+      phase, and the full ranking as [[original index, chunk id,
+      cosine score], ...] sorted by score desc. This is what makes the
+      tie-epsilon counterfactual possible without re-embedding: any
+      epsilon's choice is the earliest-index chunk within that epsilon
+      of the top score.
 
 Cost enforcement (API backend only): projected tokens are the manifest
 upper bound (ws tokens x 1.4). Projected cost = upper tokens x
@@ -137,11 +143,19 @@ def main():
              if args.backend == "api" else "stub")
     choices = []
     prompts = []
+    rankings = []
     for q, qvec in zip(queries, query_vecs):
         sc_chunks = chunk_by_scenario[q["scenario_id"]]
         res = retrieve([c["event_id"] for c in sc_chunks],
                        [chunk_vec_by_id[c["event_id"]] for c in sc_chunks],
                        qvec)
+        idx = {c["event_id"]: i for i, c in enumerate(sc_chunks)}
+        rankings.append({
+            "prompt_id": q["prompt_id"],
+            "scenario_id": q["scenario_id"], "phase": q["phase"],
+            "ranking": [[idx[cid], cid, s]
+                        for cid, s in res["ranking"]],
+        })
         chosen = next(c for c in sc_chunks
                       if c["event_id"] == res["chosen"])
         g = gold[q["prompt_id"]]
@@ -189,13 +203,17 @@ def main():
     with open(os.path.join(HERE, "prompts_emb.jsonl"), "w") as f:
         for p in prompts:
             f.write(json.dumps(p, sort_keys=True) + "\n")
+    with open(os.path.join(HERE, "retrieval_rankings_emb.jsonl"), "w") as f:
+        for r in rankings:
+            f.write(json.dumps(r, sort_keys=True) + "\n")
     n_dead = sum(1 for c in choices
                  if c["gold_status"] in ("dead_v1", "dead_v2"))
     n_tie = sum(1 for c in choices if c["tie"])
     print(f"choices: {len(choices)}; dead choices: {n_dead}; "
           f"ties: {n_tie}; stage A: "
           f"{sum(1 for p in prompts if p['stage'] == 'A')}")
-    print("wrote retrieval_choices_emb.jsonl and prompts_emb.jsonl")
+    print("wrote retrieval_choices_emb.jsonl, prompts_emb.jsonl, and "
+          "retrieval_rankings_emb.jsonl")
 
 
 if __name__ == "__main__":

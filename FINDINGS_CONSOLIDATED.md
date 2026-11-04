@@ -115,7 +115,12 @@ chain ending in a strongly marked document-style final update ran
 25%. Proximity was flat (73–83% everywhere), as expected from a
 retriever that ignores position. The fix this points at is tie
 behaviour (dense short-statement similarities plus the earliest-index
-break), not confident misranking alone.
+break), not confident misranking alone. The counterfactual (re-applying the tie rule
+at other epsilons from saved rankings) qualifies that: tightening
+to pure top-1 cuts retrieval dead from 38/48 to 32/48 with zero
+breakage, so the tie-break is worth fixing, but the remaining 32
+are confident misrankings — ranking quality, not tie-breaking, is
+the bulk of the failure.
 
 ## What this does and does not establish
 

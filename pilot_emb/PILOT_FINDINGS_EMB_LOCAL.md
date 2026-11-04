@@ -103,9 +103,57 @@ dead 24/25 (96%) against 14/23 (60.9%) for clear choices.
 
 Rule: the clear-win-only figure must never be reported without its
 epsilon. At 0.02 it sits below TF-IDF's 47.9%; at 0.002 it sits
-above it. Honest limit: this is a re-cut of recorded margins, not a
-counterfactual — re-choosing at other thresholds would need the full
-rankings or vectors, which were not saved.
+above it.
+
+### Counterfactual: what other epsilons would have chosen
+
+The re-cut above cannot say what the retriever would have chosen at
+another epsilon. The counterfactual can, now that stage R saves the
+full ranking per probe (retrieval_rankings_emb.jsonl, 108 rows):
+re-apply the tie rule at each epsilon and re-classify. The script is
+pilot_emb/counterfactual_epsilon.py; it first verifies that 0.02
+reproduces all 108 as-run choices, then reports, over the 48 action
+updates:
+
+| Epsilon | Dead | Rate | Changed vs 0.02 | To dead | To current |
+|---|---:|---:|---:|---:|---:|
+| 0.05 | 42 | 87.5% | 9 | 4 | 0 |
+| 0.02 (as run) | 38 | 79.2% | 0 | 0 | 0 |
+| 0.01 | 37 | 77.1% | 2 | 0 | 1 |
+| 0.005 | 34 | 70.8% | 7 | 0 | 4 |
+| 0.002 | 32 | 66.7% | 8 | 0 | 6 |
+| 0.0 (pure top-1) | 32 | 66.7% | 10 | 0 | 6 |
+
+Two conclusions. First, tightening helps monotonically, and the
+earliest-index tie-break only ever hurts here: at every tighter
+epsilon, no changed choice goes from current to dead, and loosening
+to 0.05 breaks 4 (the other 5 changed choices swap between dead
+versions). That is expected — the plant chunk is the oldest, so
+earliest-index systematically favours the zombie. Second, it does
+not fix the headline: even pure top-1 is 66.7% dead. The tie-break
+accounts for 6 of the 38 as-run dead choices; the remaining 32 are
+confident misrankings, the embedder genuinely ranking the dead chunk
+above the current one. So the earlier "fix target is tie behaviour"
+needs a qualifier: the tie-break is the cheapest fix (6 fixes, zero
+breakage, controls 12/12 at every epsilon), but the bulk of failures
+is ranking quality, not tie-breaking.
+
+Note on the two tables: the re-cut's clear-win-only column counts
+dead choices under the as-run choice with margin at least E; the
+counterfactual's clear-win-only counts dead choices under the E
+choice with margin at least E. They differ exactly by the
+changed-to-current probes (1 at 0.01, 4 at 0.005, 6 at 0.002), which
+is why the counterfactual's clear-win-only column reads 20 / 26 / 29
+where the re-cut reads 21 / 30 / 35.
+
+Limit: retrieval-level only. The reader headline (78.7%) was measured
+on the 0.02 choices and is not recomputed — a reader re-run on
+counterfactual choices would be a new run. The reader was faithful
+in 106/107 responses, so the direction should transfer, but the
+reader number at other epsilons is unmeasured. Only epsilon was
+varied; a different tie-break direction (for example recency) is a
+different intervention and is untested here.
+
 
 ## Limits (carried from the protocol)
 

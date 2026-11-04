@@ -16,6 +16,7 @@ sys.path.insert(0, os.path.dirname(HERE))
 
 from embedder import embed_stub  # noqa: E402
 from retriever_emb import retrieve  # noqa: E402
+from counterfactual_epsilon import choose_at_epsilon  # noqa: E402
 from run_retrieval_emb import mark_stages  # noqa: E402
 from score_emb import classify, score  # noqa: E402
 
@@ -93,6 +94,30 @@ class TestStageMarking(unittest.TestCase):
         a2 = [r["prompt_id"] for r in marked2 if r["stage"] == "A"]
         self.assertEqual(len(a2), 8)
         self.assertEqual(len(set(a2)), 8)
+
+
+class TestCounterfactual(unittest.TestCase):
+    def test_clear_top_unchanged(self):
+        ranking = [[0, "a", 0.9], [1, "b", 0.5], [2, "c", 0.4]]
+        for eps in (0.05, 0.02, 0.002, 0.0):
+            self.assertEqual(choose_at_epsilon(ranking, eps), "a")
+
+    def test_tie_goes_to_earliest_index_not_top(self):
+        # b scores highest, but a is within epsilon and earlier.
+        ranking = [[1, "b", 0.9], [0, "a", 0.885], [2, "c", 0.5]]
+        self.assertEqual(choose_at_epsilon(ranking, 0.02), "a")
+        self.assertEqual(choose_at_epsilon(ranking, 0.005), "b")
+
+    def test_tighter_epsilon_narrows_tied_set(self):
+        # Sorted by score desc, as the runner saves it.
+        ranking = [[1, "b", 0.9], [2, "c", 0.895], [0, "a", 0.88]]
+        self.assertEqual(choose_at_epsilon(ranking, 0.05), "a")
+        self.assertEqual(choose_at_epsilon(ranking, 0.01), "b")
+        self.assertEqual(choose_at_epsilon(ranking, 0.0), "b")
+
+    def test_exact_tie_at_zero_epsilon(self):
+        ranking = [[1, "b", 0.9], [0, "a", 0.9]]
+        self.assertEqual(choose_at_epsilon(ranking, 0.0), "a")
 
 
 class TestScorer(unittest.TestCase):

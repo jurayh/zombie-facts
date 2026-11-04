@@ -52,7 +52,17 @@ pilot_emb/.venv/bin/python pilot_emb/run_retrieval_emb.py --backend local
 The first run downloads all-MiniLM-L6-v2 (about 90 MB) from the
 Hugging Face hub; later runs reuse the cache. Stage R writes
 `retrieval_choices_emb.jsonl` and `prompts_emb.jsonl` (stage A
-marked). The hosted-API backend (`--backend api`) is an alternative
+marked). It also writes `retrieval_rankings_emb.jsonl`
+(the full per-probe ranking). The tie-epsilon counterfactual runs
+offline from those files:
+
+```bash
+python3 pilot_emb/counterfactual_epsilon.py
+```
+
+It verifies 0.02 reproduces the as-run choices, then prints the
+dead rate at each epsilon and writes
+`pilot_emb/results/counterfactual_epsilon.json`. The hosted-API backend (`--backend api`) is an alternative
 for the same stage: it takes `EMB_API_URL`, `EMB_API_MODEL`,
 `EMB_API_KEY`, and `EMB_API_RATE_PER_M`, and refuses to call the API
 if the projected cost from the confirmed rate exceeds its cap.
