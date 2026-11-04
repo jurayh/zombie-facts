@@ -16,7 +16,7 @@ python3 pilot_rep/build_prompts_rep.py
 python3 pilot_rep/run_gates_rep.py
 python3 pilot_emb/build_inventory_emb.py   # rebuilds chunks/queries/gold, byte-identical to the manifest hash
 python3 pilot_emb/run_gates_emb.py        # 15 gates, stub backend only, no downloads
-python3 -m unittest discover -s pilot_emb/tests  # 10 tests
+python3 -m unittest discover -s pilot_emb/tests  # 14 tests
 ```
 
 The large prompt corpora (`prompts_*.jsonl`, ~12 MB each) and raw model
