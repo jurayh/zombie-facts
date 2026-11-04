@@ -15,6 +15,8 @@ Facts measures fact *supersession* across time in persistent memory.
 **Zombie Rate** — on action probes that require the current value, the
 share of answers that use the dead (superseded) value.
 
+![Fact lifecycle: v1 superseded by v2, then v3 current; the probe asks for the current value](assets/lifecycle.svg)
+
 ## The offline spike core (this repo state)
 
 - `zombie_facts/generator.py` — synthetic world: entities with facts
@@ -74,6 +76,8 @@ as current even on direct recall. The embedding pilot adds that a real retriever
 
 All four runs stayed inside their approved caps. See `REPRODUCE.md` for how to rebuild the
 corpora and rerun the offline gates and tests, and what a live rerun needs.
+
+![Counterfactual: retrieval dead rate by tie epsilon, from 87.5% at 0.05 down to 66.7% at pure top-1](assets/counterfactual.svg)
 
 ## Pre-registered kill criteria
 

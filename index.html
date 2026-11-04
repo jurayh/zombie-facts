@@ -33,6 +33,7 @@
   .note { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
   .note p { margin: 4px 0; }
   .tbl { overflow-x: auto; }
+  img.diagram { width: 100%; height: auto; display: block; margin: 16px 0; }
   footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; color: #666; font-size: 14px; }
   footer a { margin-right: 16px; }
 </style>
@@ -58,6 +59,8 @@ replacement is present in its memory. Paired recall probes split zombies into
 dead one) versus <strong>explained</strong> (it cannot recall the live value
 either). Only pure zombies indict the acting step rather than memory
 itself.</p>
+
+<img class="diagram" src="assets/lifecycle.svg" alt="A fact's lifecycle: v1 superseded by v2, then v3 current, with unlabelled re-mentions along the way; the probe asks for the current value, answering v3 is correct, answering v2 is a zombie.">
 
 <h2>Scripted core (no model calls)</h2>
 <p>280 scenarios: 240 updates plus 40 no-update controls. Deterministic;
@@ -104,6 +107,8 @@ earliest-index tie-break only ever hurts — the plant chunk is the oldest,
 so earliest-index systematically favours the zombie. But it does not fix the
 headline: even pure top-1 is 66.7% dead. The tie-break accounts for 6 of
 the 38 as-run dead choices; the remaining 32 are confident misrankings.</p>
+<img class="diagram" src="assets/counterfactual.svg" alt="Retrieval dead rate by tie epsilon: 87.5 percent at 0.05, 79.2 at 0.02 as run, 77.1 at 0.01, 70.8 at 0.005, 66.7 at 0.002 and at pure top-1.">
+
 <table>
   <tr><th>Tie epsilon</th><th class="num">Retrieval dead rate</th></tr>
   <tr><td>0.05</td><td class="num">87.5% (42/48)</td></tr>

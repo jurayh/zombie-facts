@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="250" viewBox="0 0 720 250" role="img" aria-label="A fact's lifecycle: version 1 is superseded by version 2, then version 3 becomes current; unlabelled re-mentions occur along the way; the probe asks for the current value; answering version 3 is correct, answering version 2 is a zombie.">
+  <defs>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#2f7d4f"/>
+    </marker>
+    <marker id="arrR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#b03a2e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: Helvetica, Arial, sans-serif; fill: #1c1c1c; }
+    .small { font-size: 13px; fill: #666; }
+    .nodename { font-size: 17px; font-weight: 600; text-anchor: middle; }
+    .nodesub { font-size: 13px; text-anchor: middle; fill: #555; }
+    .outcome { font-size: 15px; font-weight: 600; text-anchor: middle; }
+  </style>
+  <text x="360" y="22" font-size="16" font-weight="600" text-anchor="middle">One fact, three versions, one probe</text>
+  <text x="360" y="44" class="small" text-anchor="middle">unlabelled re-mentions</text>
+  <!-- timeline -->
+  <line x1="50" y1="80" x2="660" y2="80" stroke="#999" stroke-width="2"/>
+  <polygon points="660,80 646,74 646,86" fill="#999"/>
+  <circle cx="210" cy="80" r="4" fill="#999"/>
+  <circle cx="390" cy="80" r="4" fill="#999"/>
+  <circle cx="550" cy="80" r="4" fill="#999"/>
+  <!-- nodes -->
+  <circle cx="120" cy="80" r="28" fill="#efe7dd" stroke="#b9a894" stroke-width="1.5"/>
+  <text x="120" y="86" class="nodename">v1</text>
+  <text x="120" y="128" class="nodesub">superseded</text>
+  <circle cx="300" cy="80" r="28" fill="#efe7dd" stroke="#b9a894" stroke-width="1.5"/>
+  <text x="300" y="86" class="nodename">v2</text>
+  <text x="300" y="128" class="nodesub">superseded</text>
+  <circle cx="480" cy="80" r="28" fill="#d7ead9" stroke="#2f7d4f" stroke-width="1.5"/>
+  <text x="480" y="86" class="nodename">v3</text>
+  <text x="480" y="128" class="nodesub">current</text>
+  <circle cx="620" cy="80" r="22" fill="#fff" stroke="#1c1c1c" stroke-width="1.5"/>
+  <text x="620" y="86" class="nodename">?</text>
+  <text x="620" y="48" class="nodesub">probe</text>
+  <!-- fork -->
+  <line x1="612" y1="102" x2="515" y2="158" stroke="#b03a2e" stroke-width="2" marker-end="url(#arrR)"/>
+  <polyline points="620,102 620,145 230,158" fill="none" stroke="#2f7d4f" stroke-width="2" marker-end="url(#arrG)"/>
+  <!-- outcomes -->
+  <rect x="70" y="162" width="320" height="44" rx="8" fill="#e2f0e4" stroke="#2f7d4f"/>
+  <text x="230" y="190" class="outcome" fill="#2f7d4f">Correct: answers v3</text>
+  <rect x="400" y="162" width="260" height="44" rx="8" fill="#f7e3df" stroke="#b03a2e"/>
+  <text x="530" y="190" class="outcome" fill="#b03a2e">Zombie: answers v2</text>
+  <text x="360" y="232" class="small" text-anchor="middle">The reader falls back to the last clearly-marked update — never to the oldest value.</text>
+</svg>
