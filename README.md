@@ -1,5 +1,7 @@
 # Zombie Facts
 
+[![Offline tests and gates](https://github.com/jurayh/zombie-facts/actions/workflows/tests.yml/badge.svg)](https://github.com/jurayh/zombie-facts/actions/workflows/tests.yml)
+
 A benchmark for **stale-fact susceptibility in agent memory**: how often an
 agent acts on a superseded fact when a current replacement exists.
 
