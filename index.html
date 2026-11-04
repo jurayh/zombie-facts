@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zombie Facts — a benchmark for stale-fact susceptibility in agent memory</title>
+<style>
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #1c1c1c;
+    background: #fafaf8;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; }
+  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 22px; margin: 40px 0 8px; }
+  p { margin: 8px 0; }
+  .tagline { font-size: 19px; color: #444; margin-bottom: 32px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 15px; }
+  th, td { border-bottom: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { color: #555; font-weight: 600; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  @media (max-width: 640px) {
+    table { font-size: 13px; }
+    th, td { padding: 6px 6px; }
+    main { padding: 32px 14px 48px; }
+  }
+  th.num { text-align: right; }
+  a { color: #1a5fb4; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .note { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+  .note p { margin: 4px 0; }
+  .tbl { overflow-x: auto; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; color: #666; font-size: 14px; }
+  footer a { margin-right: 16px; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Zombie Facts</h1>
+<p class="tagline">A benchmark for stale-fact susceptibility in agent memory: how often
+an agent acts on a superseded fact when a current replacement exists.</p>
+
+<p>Memory systems are usually graded on recall. This grades the opposite
+failure — <strong>supersession</strong>. It is the sibling of the
+Compaction-Conformance Kit: the Kit measures fact <em>survival</em> across
+compaction inside a session; Zombie Facts measures fact
+<em>supersession</em> across time in persistent memory.</p>
+
+<h2>What it measures</h2>
+<p>The headline metric is the <strong>Zombie Rate</strong>: the share of
+probes where the agent acts on a dead (superseded) value although the live
+replacement is present in its memory. Paired recall probes split zombies into
+<strong>pure</strong> (the agent recalls the live value but still acts on the
+dead one) versus <strong>explained</strong> (it cannot recall the live value
+either). Only pure zombies indict the acting step rather than memory
+itself.</p>
+
+<h2>Scripted core (no model calls)</h2>
+<p>280 scenarios: 240 updates plus 40 no-update controls. Deterministic;
+repeated runs are byte-identical.</p>
+<table>
+  <tr><th>Arm</th><th class="num">Zombie rate</th></tr>
+  <tr><td>Retrieval (version-blind)</td><td class="num">50.0%</td></tr>
+  <tr><td>Raw transcript</td><td class="num">42.1%</td></tr>
+  <tr><td>Summary</td><td class="num">24.2%</td></tr>
+  <tr><td>Versioned store (supersession links)</td><td class="num">8.3%</td></tr>
+</table>
+
+<h2>Live pilots (measured, not scripted)</h2>
+<p>Four live runs on one model class (muse-spark-1.3-contributor,
+temperature 0, reasoning low), all with pre-registered protocols, paired
+recall probes, and hard spend caps.</p>
+<div class="tbl">
+<table>
+  <tr><th>Run</th><th>Scale</th><th class="num">Raw zombie</th><th class="num">Retrieval zombie</th><th class="num">Versioned zombie</th></tr>
+  <tr><td>v1 pilot (Oct 28, 2026)</td><td>~2k, single updates</td><td class="num">0.0% (0/96)</td><td class="num">50.0%</td><td class="num">6.3%</td></tr>
+  <tr><td>v2 hard regime (Oct 29, 2026)</td><td>~20k, chained, unlabelled</td><td class="num">12.5% (6/48)</td><td class="num">72.9% (TF-IDF)</td><td class="num">6.3%</td></tr>
+  <tr><td>Varied phrasing (Oct 30, 2026)</td><td>~20k, phrasing varied</td><td>59.6% scored (28/47); 71.8% weak, 0/8 direct</td><td class="num">—</td><td class="num">—</td></tr>
+  <tr><td>Embedding retriever (Nov 1, 2026)</td><td>v2 corpus, 823 chunks</td><td class="num">—</td><td class="num">78.7% (37/47)</td><td class="num">—</td></tr>
+</table>
+</div>
+<p>The headline result: a reader acting on a dead value is real, but only
+when the final update arrives weakly. Every zombie in v2 and the replication
+answered v2 (the most recent dead value), never v1 — the reader falls back
+to the last clearly-marked update. Strongly marked final updates (direct
+control) were never missed.</p>
+
+<h2>The tie story</h2>
+<p>Version-blind retrieval manufactures zombies regardless of reader
+quality: 50.0% in v1, 72.9% in v2 with a TF-IDF proxy, 78.7% with a local
+embedding retriever. A versioned store with supersession links nearly
+eliminates them (6.3% in both pilots). The embedding headline is close to
+TF-IDF's, so the proxy is validated on the headline — but the failure
+composition differs: embedding failures are mostly ties. The reader adds
+almost no error of its own (faithful to the retrieved chunk in 106/107
+responses, zero reader-introduced zombies).</p>
+<p>Re-applying the tie rule at other epsilons from the saved rankings
+(the counterfactual) shows tightening helps monotonically, and the
+earliest-index tie-break only ever hurts — the plant chunk is the oldest,
+so earliest-index systematically favours the zombie. But it does not fix the
+headline: even pure top-1 is 66.7% dead. The tie-break accounts for 6 of
+the 38 as-run dead choices; the remaining 32 are confident misrankings.</p>
+<table>
+  <tr><th>Tie epsilon</th><th class="num">Retrieval dead rate</th></tr>
+  <tr><td>0.05</td><td class="num">87.5% (42/48)</td></tr>
+  <tr><td>0.02 (as run)</td><td class="num">79.2% (38/48)</td></tr>
+  <tr><td>0.01</td><td class="num">77.1% (37/48)</td></tr>
+  <tr><td>0.005</td><td class="num">70.8% (34/48)</td></tr>
+  <tr><td>0.002</td><td class="num">66.7% (32/48)</td></tr>
+  <tr><td>0.0 (pure top-1)</td><td class="num">66.7% (32/48)</td></tr>
+</table>
+<div class="note">
+<p><strong>Rule:</strong> the clear-win-only figure must never be reported
+without its epsilon. At 0.02 it is 27.7% (scored answers), below TF-IDF's
+47.9%; at 0.002 it rises to 72.9% of choices, above it.</p>
+</div>
+
+<h2>What this does not establish</h2>
+<p>Rates for other models, other scales, prose (non exact-value) answers,
+or production embedding retrievers — the TF-IDF retriever here is a
+documented proxy, not a production index, and the embedding pilot used one
+small local model, not a hosted embedder or a production store. The
+per-phrasing rates are presence/absence screens at n=8, not precise
+rankings.</p>
+
+<h2>Reproduce it</h2>
+<p>The scripted core and all gates run offline with no key. The live pilots
+are documented step by step, including their caps and protocols, so the
+numbers above can be re-derived rather than taken on trust.</p>
+
+<footer>
+  <a href="https://github.com/jurayh/zombie-facts">Repository</a>
+  <a href="https://github.com/jurayh/zombie-facts/blob/main/FINDINGS_CONSOLIDATED.md">Consolidated findings</a>
+  <a href="https://github.com/jurayh/zombie-facts/blob/main/REPRODUCE.md">Reproduce</a>
+  <a href="https://github.com/jurayh/zombie-facts/blob/main/pilot_emb/PILOT_FINDINGS_EMB_LOCAL.md">Embedding pilot findings</a>
+  <p>Zombie Facts — benchmark for stale-fact susceptibility in agent memory.</p>
+</footer>
+
+</main>
+</body>
+</html>
