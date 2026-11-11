@@ -36,7 +36,7 @@ share of answers that use the dead (superseded) value.
   proximity manipulation (dead fact re-mentioned nearest the probe, live
   fact confirmed nearest the probe, or neither).
 - `run_spike.py` — writes `results/zombie_rates.json` / `.md`.
-- `tests/` — 10 unit tests, including the sanity gates.
+- `tests/` — 27 unit tests, including the sanity gates.
 
 No model calls anywhere. A live model arm is a separate, costed proposal
 requiring explicit approval (see FINDINGS.md).
@@ -63,7 +63,7 @@ paired recall probes, and hard spend caps. Full findings in
 | v1 pilot (Oct 28, 2026) | ~2k tokens, single updates | 0.0% (0/96) | 50.0% | 6.3% |
 | v2 hard regime (Oct 29, 2026) | ~20k tokens, chained v1→v2→v3, unlabelled re-mentions | 12.5% (6/48) | 72.9% (TF-IDF) | 6.3% |
 | varied-phrasing replication (Oct 30, 2026) | ~20k tokens, final update phrasing varied | 59.6% scored (28/47), 71.8% on weak phrasings, 0/8 direct control | — | — |
-| embedding retriever, local model (Nov 1, 2026) | v2 corpus, 823 chunks, 108 probes | — | 78.7% (37/47; 27.7% clear-win-only) | — |
+| embedding retriever, local model (Nov 1, 2026) | v2 corpus, 823 chunks, 108 probes | — | 78.7% (37/47; 27.7% clear-win-only, ε=0.02) | — |
 
 Headline result: a reader acting on a dead value is real, but only when
 the final update arrives weakly. Every zombie in v2 and the replication
@@ -72,7 +72,7 @@ back to the last clearly-marked update. Strongly marked final updates
 (direct control) were never missed. Weaker phrasings fail two ways:
 stronger weak phrasings are registered but not used at action time
 (pure zombies); the weakest (hearsay, parenthetical) are not registered
-as current even on direct recall. The embedding pilot adds that a real retriever's failures are mostly tie-driven: 78.7% headline, 27.7% counting clear wins only, below TF-IDF's 47.9%.
+as current even on direct recall. The embedding pilot adds that a real retriever's failures are often tie-driven: 24 of 37 zombies were tie choices, and the headline (78.7%) is close to TF-IDF's 72.9%. But the tie-break is not the whole story: the counterfactual (re-applying the tie rule at other epsilons) cuts the retrieval dead rate from 79.2% to 66.7% at pure top-1, so only 6 of 38 dead choices are tie-driven and the rest are confident misrankings. The clear-win-only rate is 27.7% at epsilon 0.02, below TF-IDF's 47.9% — and it rises past TF-IDF at tighter epsilons, so it must always be reported with its epsilon.
 
 All four runs stayed inside their approved caps. See `REPRODUCE.md` for how to rebuild the
 corpora and rerun the offline gates and tests, and what a live rerun needs.
