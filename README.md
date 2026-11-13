@@ -78,13 +78,3 @@ All four runs stayed inside their approved caps. See `REPRODUCE.md` for how to r
 corpora and rerun the offline gates and tests, and what a live rerun needs.
 
 ![Counterfactual: retrieval dead rate by tie epsilon, from 87.5% at 0.05 down to 66.7% at pure top-1](assets/counterfactual.svg)
-
-## Pre-registered kill criteria
-
-- **K1** — zombie rates near zero across arms (max < 5%): nothing to
-  measure, stop.
-- **K2** — zombie rates high everywhere (min > 20%) *and* almost fully
-  explained by v2 recall failure (pure zombies < 10% of all zombies):
-  ordinary forgetting; fold into the Compaction Kit and stop.
-- Otherwise: the effect exists at measurable size and separates memory
-  architectures → GO to a costed live-arm proposal.
